@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>switch~case문</h1>
+    <script>
+        var portal=prompt('네이버, 구글, 다음, 야후 포탈사이트 중 하나를 입력');
+        var url='', cr='black';
+        //사이트별로 url 할당하여 출력하고 글자색을 각각 다르게
+        switch(portal){
+            case `네이버`:
+                url="http://www.naver.com";
+                cr='green';
+                break;
+            case '구글':
+                url="http://www.google.com";
+                cr='maroon';
+                break;
+            case '다음':
+                url="http://www.daum.net";
+                cr='blue';
+                break;
+            case '야후':
+                url="http://www.yahoo.com";
+                cr='violet';
+                break;
+                default:
+                url='입력 오류';
+        }
+        document.write("<h1 style='color:"+cr+"'>"+url+"</h1>");
+        window.location.href=url;
+        //location 내장객체 이용해서 해당 url로 이동
+    </script>
+</body>
+</html>

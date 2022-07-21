@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+    #movies{
+        width:90%;
+        margin:auto;
+        text-align: center;
+    }
+    #movies img{
+        height:250px;
+    }
+    </style>
+    <script>
+        //[1] 현재 상영중인 영화 이미지 파일명을 배열에 저장하세요
+        var arr=['movie_image1.jpg','movie_image2.jpg','movie_image3.jpg',
+                 'movie_image4.jpg','movie_image5.jpg'];
+        //[2] 현재 상영작버튼을 누르면 저장된 다섯가지 영화 이미지가 id가 movies인 곳에 나란히 나오도록
+        var movieList=null;
+        var x=20;//x좌표
+        var i=1;
+        var win=null;
+        window.onload=function(){
+            var movieList=document.getElementById('movies')
+            obj1=document.getElementById('b1');
+            obj3=document.getElementById('b3');
+            var src="";
+            obj1.onclick=function show(){
+                    for(i=0;i<arr.length;i++){
+                    src+="<img src='images/"+arr[i]+"'>";
+                    }
+                    movieList.innerHTML=src;     
+            }
+        //[3] ▶버튼을 누르면 영화이미지들이 오른쪽으로, 끝나면 왼쪽으로 다시 이동
+        function move(){
+            if(win==null){
+                win=setInterval(function(){
+                    go();
+                },50);
+            }
+        }     
+        function go(){
+            if(x>150){
+                i=-1;
+            }if(x<20){
+                i=1;
+            }
+            x+=(i*3);//3씩 증가
+            consol.log('x : ',+x);
+            movieList.style.marginLeft=x+"px";
+                }
+        }
+        //[4] ■버튼 누르면 중지
+         obj3.onclick=function stop(){
+                clearInterval(w);
+                w=null;
+        }
+        
+    </script>
+</head>
+<body>
+    <button id='b1'>현재 상영작</button>
+    <button onclick="move()">▶</button>
+    <button id='b3'>■</button id='b3'>
+    <div id="movies"></div>
+</body>
+</html>

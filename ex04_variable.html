@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>변수의 Scope</h1>
+    <h2>전역변수, 지역변수(매개변수)</h2>
+
+    <script>
+        var global="전역변수";
+        
+        function hello(){
+
+            var local="지역변수";
+            //var를 생략하고 변수를 선언하고 초기화
+            aaa=100;//이건 전역변수일까, 지역변수일까?
+                    //var를 생략하고 변수선언, 초기화하면 전역변수가 됨
+
+            alert('global='+global);
+            alert('local='+local);
+            alert('aaa='+aaa);
+        }
+
+        function hi(){
+            alert('global: '+global);
+            alert('local: '+local);
+        }
+
+        function bye(name){
+            //name: 지역변수, 매개변수
+            //매개변수에는 var를 붙이면 안됨
+            document.write("<h1> Bye~~"+name+"</h1>");
+        }
+
+        //hello();//함수 호출
+        hi();
+        bye("Tom");
+        bye();
+        bye('Peter','Susan')
+    </script>
+</body>
+</html>
+
+<!-- ex04_variable.html -->

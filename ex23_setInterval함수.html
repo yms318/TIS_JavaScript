@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function show(){
+            alert('꽝!!!');
+        }
+    </script>
+</head>
+<body>
+    <h1>whindow객체의 setTimeout(),setInterval()함수</h1>
+    window.setTimeout(함수,밀리초) : 밀리초가 지나면 함수를 호출
+    <br>
+    window.clearTimeout(변수) : 중지시킴<br>
+    <button onclick="win=window.setTimeout(show,3000)">Click me-setTimeout()</button>
+    <button onclick="window.clearTimeout(win)">Stop me-clearTimeout()</button>
+    <hr color='red'>
+    변수=window.setInterval(함수명,밀리초) : 밀리초가 지나면 함수를 호출하되 주기적으로 호출한다.<br>
+    window.clearInterval(변수) : 중지시킴
+    <button onclick="timer=setInterval(show,3000)">setInterval()</button>
+    <button onclick="clearInterval(timer)">clearInterval</button>
+    <hr color='blue'>
+    <div id="clock">여기에 시계가 나오도록...</div>
+    <button onclick="go()">Digital Clock Start</button>
+    <button onclick="stop()">Digital Clock Stop</button>
+    <script>
+        var clock=null;
+
+        function go(){
+            if(clock==null){
+            //1초 간격으로 주기적으로 시간정보를 얻어와서
+            clock=setInterval(start,1000);
+        }
+        function start(){
+            
+            var time=new Date();
+            var str="";
+            str+=time.getHours()+":";
+            str+=time.getMinutes()+":";
+            str+=time.getSeconds();
+
+            //id가 clock인 곳에 보여주기
+            var obj=document.getElementById("clock");
+            obj.innerHTML="<h2 style='color:red'>"+str+"</h2>";
+            }
+        }
+        function stop(){
+            if(clock!=null){
+                clearInterval(clock);
+                clock=null;
+            }
+        }
+    </script>
+</body>
+</html>
+
+<!-- ex23_setInterval함수.html -->

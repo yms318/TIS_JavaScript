@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>BOM-location객체</h1>
+    <div id="msg"></div> <!--div#msg-->
+    <button id="b1">location객체 속성 살펴보기</button>
+    <button id="b2">페이지 이동</button>
+    <button onclick="newPage()">새로운 페이지</button>
+    <button onclick="refresh()">새로고침</button>
+    <button onclick="go()">3초 후 페이지 이동</button>
+    <script>
+        var obj1=document.getElementById('b1');
+        var obj2=document.getElementById('b2');
+        var objMsg=document.getElementById('msg');
+            //location객체 속성
+            //[1] href : 현재 페이지의 url을 반환함
+            //[2] hostname : 웹호스트의 도메인명을 반환함
+            //[3] pathname : 현재 페이지의 경로와 파일명을 반환함
+            //[4] protocol : 현재 페이지의 프로토콜 반환
+        obj1.onclick=function(){
+            objMsg.innerHTML="<h3>"+window.location.href+"<h3>";
+            objMsg.innerHTML+="<h3>"+location.hostname+"<h3>";
+            objMsg.innerHTML+="<h3>"+location.pathname+"<h3>";
+            objMsg.innerHTML+="<h3>"+location.protocol+"<h3>";
+        }
+            //obj2를 클릭하면 location의 href속성을 이용해 '구글'페이지로 이동시키기
+        obj2.onclick=function(){
+            location.href="http://www.google.com";
+        }
+        newPage=function(){
+            //[5] assign('파일명') 함수 : 새로운 문서를 로드
+            location.assign('ex29_style.html');
+        }
+        refresh=function(){
+            //[6] reload()함수 : 새로고침 해줌
+            console.log('reload()수행함');
+            location.reload();
+        }
+        go=function(){
+            objMsg.innerHTML="<img src='images/Spinner.gif'>";
+            //로딩이미지를 보여주고 3초 뒤에 페이지를 이동
+            //'네이버로 이동시키자'
+            setTimeout(function(){
+                // location.href="http://www.naver.com";
+                location.assign=('http://www.daum.net');
+            },3000)
+        }
+
+    </script>
+</body>
+</html>

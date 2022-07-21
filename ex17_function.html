@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="tis">여기에 메시지 출력</div>
+    <button onclick="say()">Click Me</button>
+    <button onclick="hello()">Click Me2</button>
+    <!-- 버튼을 클릭하면 함수(say)를 호출
+         함수 안에서는 prompt('메시지를 입력하세요');
+         를 띄워주고 사용자가 입력하는 메시지를 받아서
+         document.write()하세용-->
+    <script>
+        var hello=function(){
+            var msg=prompt('이름을 입력하세요');
+            if(msg) alert("Hello "+msg);
+        }
+        //say()구성하기
+         function say(){
+            var msg=prompt('메시지를 입력하세요');
+            //document.write(msg); -> document를 새로 불러옴
+            //id가 tis인 div엘리먼트를 참조하자
+            var divObj=document.getElementById('tis');
+            //alert(divObj);
+            //divObj.innerText=msg;
+            divObj.innerHTML=msg;
+            
+            //div엘리먼트에 스타일을 주고싶을 때
+            //html객체.style.속성명='값'
+            //[주의] 이 때 속성명에 하이픈(-)이 들어가면 안됨
+            //Javascript에서는 '-'을 변수로 사용불가
+            //divObj.style.background-color='skyblue';
+            divObj.style.backgroundColor='skyblue';//[o]
+            divObj.style.color='white';
+            //자바스크립트에서는 camel표기법으로 속성명을 사용
+            //'-'을 없애고 뒤에오는 단어의 첫글자를 대문자로
+         }
+    </script>
+</body>
+</html>
+
+<!-- ex17_function.html -->

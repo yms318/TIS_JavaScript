@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>적정 체중을 구하는 프로그램</h1>
+    [실습] 이름, 키, 몸무게를 입력받아 적정 체중을 구한 뒤,
+    비교하여 적정 체중을 10%초과하면 '과체중(red)',
+    적정 체중 10% 미만이면 '체중 미달(blue)'
+    그 외는 '적정 체중입니다.(green)'를 출력하세요
+    <br>
+    적정체중 = (신장-100)*0.9
+    <script>
+        //[1] prompt로 이름, 키, 몸무게 입력 후 출력하기
+        var name=window.prompt("이름을 입력하세요",0);
+        var height=prompt("키를 입력하세요",0);
+        var weight=prompt("몸무게를 입력하세요",0);
+
+        var s=(height-100)*0.9;
+
+        document.write("<h1>이름 : "+name+"</h1>");
+        document.write("<h1>키 : "+height+"</h1>");
+        document.write("<h1>몸무게 : "+weight+"</h1>");
+        document.write("<h1>적정체중 : "+s+"</h1><br><br>");
+
+        if(weight>=s+(s*0.1)){
+            document.write("<h4 style='color:red'>"+name+"님은 과체중입니다.</h4>");
+        } else if(weight<=s-(s*0.1)){
+            document.write("<h4><font color=blue>"+name+"님은 체중 미달입니다.</h4>");
+        } else {
+            document.write("<h4>"+name+"님은 적정 체중입니다.</h4>");
+        }
+
+
+    </script>
+
+</body>
+</html>
+
+<!-- ex08_실습.html -->

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>중첩 for루프 실습</h1>
+    <script>
+        var row=prompt('행의 수를 입력하세요');
+        var col=prompt('열의 수를 입력하세요');
+        var cr=prompt('배경색을 입력하세요','yellow');
+        document.write(`row:${row} col:${col} cr:${cr}<br>`);
+
+        //입력받은 값의 테이블을 구성하세요
+        //"딸기" 내용이 들어가도록
+        //테이블의 배경색을 입력받은 값으로 주세요
+
+        var str="<table border='1' solid gray>"
+            for(i=1;i<=row;i++){
+                str+="<tr>";
+                for(k=1;k<=col;k++){
+                    str+="<td style='background-color:"+cr+"'>";
+                    str+="딸기"
+                    str+="</td>"
+                }
+                str+="</tr>"                
+            }
+        document.write(str);
+    </script>
+</body>
+</html>
+
+<!-- ex12_for.html -->

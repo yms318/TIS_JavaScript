@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let 동물 = ["척추동물", "어류", "척추동물", "무척추동물", "파충류", "척추동물", "어류", "파충류"];
+        /*
+        1회 : ['척추동물']                          #false
+        2회 : ['척추동물', '어류']                  #false
+        3회 : ['어류', '척추동물']                  #true => 같은 종 만나면 뒤로 보냄
+        4회 : ['어류', '척추동물', '무척추동물']     #false
+        5회 : ['척추동물', '무척추동물', '파충류']   #false
+        6회 : ['무척추동물', '파충류', '척추동물']   #true
+        7회 : ['파충류', '척추동물', '어류']        #false
+        8회 : ['척추동물', '어류', '파충류']        #true
+        */
+        let 자리 = 3;
+        function solution(동물, 자리) {
+            let 의자 = [];
+            let answer = 0;
+
+            for (var 개별동물 of 동물) {
+                if (의자.length < 3) {
+                    //페이지가 히트되었을 때
+                    if (의자.includes(개별동물)) {
+                        //.shift() : 앞의 요소를 잘라내 반환, .unshift() : 요소를 앞에 추가
+                        의자.splice(의자.indexOf(개별동물), 1);
+                        의자.push(개별동물); 
+                        answer += 1;
+                    } else {
+                        의자.push(개별동물); //그냥 집어넣기
+                        answer += 60;
+                    }
+                } else {
+                    if (의자.includes(개별동물)) {
+                        //.shift() : 앞의 요소를 잘라내 반환, .unshift() : 요소를 앞에 추가
+                        의자.splice(의자.indexOf(개별동물), 1);
+                        의자.push(개별동물); 
+                        answer += 1;
+                    } else {
+                        의자.shift();
+                        의자.push(개별동물);
+                        answer += 60;
+                    }
+
+                }
+                console.log(의자)
+            }
+
+            return [`${parseInt(answer/60, 10)}분, ${answer%60}초`];
+        }
+        console.log(solution(동물, 3));
+        
+    </script>
+</body>
+</html>

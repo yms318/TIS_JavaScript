@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>가위 바위 보 게임</h1>
+    <script>
+        var you=prompt("가위 바위 보 중 하나를 입력하세요","가위");
+        var gameNum=1;
+        switch(you){
+            case "가위":gameNum=1; break;
+            case "바위":gameNum=2; break;
+            case "보":gameNum=3; break;
+            default: {
+                alert("잘못 입력했어요");
+                location.reload(); //앞에 window.은 전역이라 생략가능
+            }
+        }
+        var comNum=Math.floor(Math.random()*2+1);
+        var com="";
+        switch(comNum){
+            case 1:com="가위"; break;
+            case 2:com="바위"; break;
+            case 3:com="보"; break;
+        }
+         //document.write(you+"["+gameNum+"]");//가위바위보 이미지 띄우기
+         var str="<div class='you'> 당신: <img src='images/"+gameNum+".gif'></div>";
+            str+="<div class='you'> 컴퓨터: <img src='images/"+comNum+".gif'></div>";
+        document.write(str);
+
+        var result="";
+        if(gameNum==comNum){
+                result="서로 비겼네요~"
+            } else if((gameNum==1 && comNum==3) || (gameNum==2 && comNum==3)|| (gameNum==3 && comNum==2)){
+                result="당신이 이겼어요!";
+            } else{
+                result="당신이 졌어요...";
+            }
+        document.write(result);
+
+        //컴퓨터가 랜덤하게 가위바위보를 발생시킨다.
+        //컴퓨터가 낸 값과 내가 낸 값을 비교하여 비겼어요, 이겼어요 졌어요를 띄우자.
+    </script>
+</body>
+</html>
+<!-- ex22_random.html -->

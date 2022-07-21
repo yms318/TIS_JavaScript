@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>for~in 루프문</h1>
+    <pre>
+    for 변수 in 객체(또는 배열, Collection)
+    {
+        변수는 객체의 속성(property)을 참조한다.
+    }
+    </pre> 
+    <script>
+        var tv=new Object();
+        tv.color='white'; //속성
+        tv.price='1500000';
+        tv.model='LG001';
+        tv.info=function(){
+            document.write('Model: '+this.model+", Price: "+this.price+", Color: "+this.color);
+            document.write(tv.color);
+        }
+        tv.info();
+        document.write("<hr color='red'>");
+        document.write(tv.color,"<br>");
+        document.write(tv['model'],'<br>');
+
+        for(var k in tv){
+            //tv.k ==> [x]
+            //tv[k] ==> [o]
+            document.write("<h1>"+k+": "+tv[k]+"</h1>");//속성명
+        }
+    </script>
+    <hr color='blue'>
+    window.location 객체의 속성을 for in루프를 이용해 출력
+    <script>
+    for(var x in location){
+        document.write(x,"<br>");
+    }
+    </script>
+    <hr color='orange'>
+    <script>
+        var arr=[10,20,30];//배열
+        //배열의 속성은 index번호
+        for(var i in arr){
+            document.write(i,"<br>");
+            document.write(arr[i],"<br>");
+        }
+    </script>
+</body>
+</html>
+
+<!-- ex15_forIn.html -->

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>3행 5열의 테이블을 출력하세요</h1>
+    <script>
+        var str="<table border='1'>";
+        for(var i=1;i<4;i++){ //행의 조건
+            str+="<tr>"
+            for(var k=1;k<6;k++){ //열의 조건
+                //str+="<td>"+i+"행 "+k+"열</td>";
+                str+=`<td style="background-color:pink">${i}행${k}열</td>`;
+            }
+        }
+        str+="</table>";
+        document.write(str);
+    </script>
+</body>
+</html>
+
+<!-- ex11_for.html -->

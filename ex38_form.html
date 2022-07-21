@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function check(){
+            //form내에 name속성을 주면 접근이 쉽다.
+            //name을 주지 않았을 경우 아래와 같이 접근한다.
+            var uname=document.forms[0].name.value;
+            if(!uname){
+                alert('이름을 입력해야 아이디를 찾아요')
+                document.forms[0].navme.focus();
+                return;
+            }
+            document.forms[0].submit();
+        }
+        function check2(){
+            var upwd=document.forms[1].name.value;
+            //이름으로 접근할 경우
+            if(!frm.name.value){
+                alert('이름을 압력하세요')
+                frm.name.focus();
+                return;                
+            }
+            //아이디로 접근할 경우
+            if(document.getElementById('uid').value){
+                alert('아이디를 입력하세요')
+                document.getElementById('uid').focus();
+                return;
+            }
+            alert(frm.action);
+            alert(frm.method);
+            frm.action="http://www.google.com";//action: 속성
+            frm.method="post";//method: 속성
+            frm.submit();//submit()함수
+        }
+    </script>
+</head>
+<body>
+    <form action="findId.jsp">
+        <h1>아이디 찾기</h1>
+        이름 <input type="text" name="name"><br><br>
+        <button type="button" onclick="check()">Submit</button type="button">
+    </form>
+    <hr color='blue'>
+    <form name='frm' action="findPwd.jsp">
+        <h1>비밀번호 찾기</h1>
+        이름 : <input type="text" name="name"><br><br>
+        아이디 : <input type="text" name="uid"><br><br>
+        <button type="buton" onclick="check2()">Submit</button>
+    </form>
+</body>
+</html>

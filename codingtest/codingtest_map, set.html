@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let m = new Map();
+
+        m.set('하나', '1');
+        m.set(1, '하나');
+        m.set(true, 1);
+        m.set(false, 0);
+        m.set('하나', '1');
+
+        console.log(m.get('하나'));
+        console.log(m.get(true));
+        console.log(m.has('하나'));
+        console.log(m.delete('하나'));
+        console.log(m.has('하나'));
+
+        console.log(m);
+        console.log(m.size);
+
+        for (var variable of m) {
+            console.log(`m 순회중... ${variable}`);
+        }
+        
+        console.log( m.keys());
+        console.log(m.values());
+        console.log(m.entries());
+        
+        let temp = new Map([[1, 10],
+                            [2, 20],
+                            [3, 30],
+                            [4, 40]]);
+        
+        console.log(temp);
+        
+
+        /*
+        //교집합 합집합 같은 것
+        let s = new Set ('abcdeeeee') //중복 허락 X
+        console.log(s.size);
+        s.add('f');
+        console.log(s);
+
+        for (var variable of s) {
+            console.log(variable);
+        }
+        
+        let s2 = new Set ('abcdeeeee'.split('')) //중복 허락 X
+        console.log('s2 : ' + s2);
+
+        s2.delete('b');
+        console.log(s2.has('a'));
+
+        console.log(s2);
+
+        s2.clear();
+        console.log(s2);
+        */
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var dan=prompt('구구단의 단을 입력하세요','2');
+
+    document.write("<h1>"+dan+"단</h1>");
+
+    // <!-- for루프 이용해서 구구단 출력하세요
+    // => 테이블 형태로 출력하세요. 단 짝수 단일 경우는 td의
+    //    배경색을 노란색으로, 홀수 단일 경우는 배경색을 라임색으로 출력 -->
+    var bgcolor='white';
+    if(dan%2==0){
+        bgColor='yellow';
+    }else{
+        bgColor='lime';
+    }
+    
+    var str='<table style="border:1px solid gray">';
+
+    for(i=1;i<10;i++){
+        str+="<tr><td style='background-color:"+bgColor+"''>";
+        str+=dan+" * "+i+" = " +(dan*i)+"<br>";
+        str+="</td></tr>";
+    }
+        str+="</table>";
+        document.write(str);
+        document.write("<hr>")
+
+    </script>
+</body>
+</html>

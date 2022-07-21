@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 외부에 작성된 파일을 참조 -->
+    <script src="ex02_1.js"></script>
+    <script>
+        //파일 내부에서 스크립트로 작성하는 방법
+        function hello(){
+            window.alert('Hello~~~');
+        }
+    </script>
+</head>
+<body>
+    <h1 onclick="hello()">자바스크립트를 외부 파일로 분리하여 참조합시다.</h1>
+<h2 onmouseover="hi(this)"
+    onmouseout="foo(this)">MouseOver하세요</h2>
+<!-- hi()함수는 외부파일에 작성해 봅시다. ex02_1.js
+    마우스 아웃시 원래 색으로 돌아오도록 ex02_1.js파일에 foo()함수 호출-->
+</body>
+</html>
+
+<!-- ex02_외부파일참조.html -->

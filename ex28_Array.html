@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>배열의 메소드</h1>
+    <script>
+        var greenLine=["당산","문래","신도림","방배","서초"];
+        var goldLine=["신논현","고속터미널","동작","여의도"];
+        //[1] push(새요소): 배열의 마지막에 새로운 요소를 추가한다.
+        //[2] pop() : 배열의 마지막 요소를 삭제하고 삭제한 요소를 반환
+
+        greenLine.push("홍대입구");
+        print(greenLine);
+
+        //goldLine에서 여의도 삭제하기
+        goldLine.pop()
+        print(goldLine);
+
+        //[3] shift() : 배열의 첫번째 요소를 제거하고 반환
+        //[4] unshift() : 배열의 맨 앞에 새로운 요소를 추가
+        //2호선 맨 앞의 "당산" 삭제
+        greenLine.shift();
+        print(greenLine);
+        //2호선 맨 앞에 "합정" 추가
+        greenLine.unshift("합정");
+        print(greenLine);
+
+        //[5] concat() : 배열 여러개를 합쳐서 하나의 배열로 만들어 반환
+        //2호선과 9호선을 합한 배열을 만들어 출력
+        print(greenLine.concat(goldLine));
+
+        //[6] splice(start,[count],[새로 추가하고자하는 요소])
+        arr.splice(2,3);//인덱스가 2인 곳에서 3개의 요소를 삭제
+        
+        function print(val){
+            document.write("<h3>"+val+"</h3>");
+        }
+        arr.splice(0,1,"신림");//인덱스 0인 곳에서 한개 삭제 후 "신림" 추가
+        print(arr);
+        //[7] slice(start,[end])
+        var arr2=arr.slice(0,5);//시작인덱스 0~끝인덱스 5의 직전까지
+                                //잘라내어 새로운 배열을 반환
+        print(arr2);
+
+    </script>
+    
+</body>
+</html>

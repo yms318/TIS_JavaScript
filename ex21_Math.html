@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>내장객체-Math</h1>
+    <script>
+        var num=23.4567;
+        var roundNum=Math.round(num);//반올림 함수
+        var floorNum=Math.floor(num);//내림 함수
+        var ceilNum=Math.ceil(num)//올림 함수
+        var rnum=Math.random();//0.0 <= rnum <1.0
+        var mx=Math.max(10,5,78,45);
+        var mn=Math.min(10,5,78,45);
+        /*0<= rnum2 <10 임의의 정수를 발생시켜 보세요*/
+        var rnum2=Math.floor(Math.random()*10);
+        var rnum3=Math.floor(Math.random()*23+45);
+
+        print(roundNum);//function이라 아래에서도 호출 가능
+        print(floorNum);
+        print(ceilNum);
+        print(Math.PI);
+        print(rnum);
+        print(mx);
+        print(mn);
+        print(rnum2);
+        print(rnum3);
+
+        function print(val){
+            document.write("<h1>"+val+"</h1>");
+        }
+    </script>
+</body>
+</html>
+<!-- ex21_Math.html -->

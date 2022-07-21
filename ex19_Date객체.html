@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var arr=["일","월","화","수","목","금","토"];
+    function showToday(){
+        //내장객체 Date
+        var mdate=new Date();
+        var str="";
+        //getYear():1900년 1월1일을 기준으로 한 연도정보 반환
+        //str+=mdate.getYear()+1900;
+        str+=mdate.getFullYear()+"년 ";
+
+        //아이디가 result인 div요소를 찾아 그 안에 str을 넣어 보여주세요
+        //월 : getMonth();
+        //일 : getDate();
+        //요일 : getDay();
+
+        str+=(mdate.getMonth()+1)+"월 ";
+        //Jan(1)=>0을 반환 ~ Dec(12)=>11을 변환
+        str+=mdate.getDate()+"일 ";
+
+        str+=arr[mdate.getDay()]+"요일";
+        //Sun:0, Mon:1... Sat:6을 반환
+
+        var obj=document.getElementById("result");
+        console.log(obj);
+        obj.innerHTML="<h2 style='color:green'>"+str+"</h2>";
+    }
+    var showTime=function(){
+        //getHours(), getMinutes(), getSeconds() 시분초 보여주기
+        var mtime=new Date();
+        var str="";
+        str+=mtime.getHours()+"시 ";
+        str+=mtime.getMinutes()+"분 ";
+        str+=mtime.getSeconds()+"초 ";
+
+        var obj=document.getElementById("result");
+        obj.innerHTML="<h2 style='color:red'>"+str+"</h2>";
+    }
+    var showInfo=function(){
+        //특정 년월일의 정보 구하기
+        //참조변수=new Date(년도,월-1,일)
+        //[1]2019-12-25 무슨 요일인지 알아내기
+        var minfo=new Date(2019,11,25);
+        var str="";     
+        str+=arr[minfo.getDay()]+"요일, ";
+
+        //[2]오늘 날짜와 2019-12-25까지 며칠이 남았는지 출력
+        //=> getTime()함수 이용하기(1970년 1월 1일 기준으로 밀리초를 반환)
+        //1초 : 1000mills
+        //1분 : 1000*60
+        //1시간 : 1000*60*60
+        //1일 : 24*1000*60*60
+
+        var minfo2=new Date();
+
+        var lapTime=minfo.getTime()-minfo2.getTime();
+        var time=Math.ceil(lapTime/(1000*60*60*24));
+
+        str+=time+"일 남았음";
+
+        var obj=document.getElementById("result");
+        obj.innerHTML="<h2 style='color:blue'>"+str+"</h2>"
+        
+    }
+    </script>
+</head>
+<body>
+    <h1>내장객체</h1>
+    <h2>String, Date, Array, Mate, regExp(정규식객체)</h2>
+    <h3>참조변수=new 생성함수()</h3>
+    <button onclick="showToday()">오늘날짜 보기</button>
+    <button onclick="showTime()">현재시간 보기</button>
+    <button onclick="showInfo()">2019-12-25일 정보 보기</button>
+    <hr color='red'>
+    <div id="result"></div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>연산자</h1>
+    <script>
+        var a=450; //number
+        var b="200"; //string
+        document.write(a+b,"<br>");//450200
+        document.write(a-b,"<br>");
+        document.write(a*b,"<br>");
+        document.write(a/b,"<br>");
+        document.write(a&b,"<br><br>");
+        /* 자바스크립트는 자료형이 달라도 연산을 수행한다.
+           단, 더하기(+)의 경우는 string과 더하기라면 문자열 결합이 일어남
+           해결방법1) parseInt(), parseFloat() 내장함수 이용
+           해결방법2) Number()함수 이용
+        */
+
+        var c=72.123;
+        var d='12.45';
+        //c+d의 결과값을 출력하세요 84.573
+
+        document.write(c+parseFloat(d));
+        var e=c+parseFloat(d);
+        document.write(c+"+"+d+"="+e,"<br>");
+
+        var f=c+Number(d);
+        document.write(c+"+"+d+"="+f,"<br>");
+
+        var g='true';
+        var h='false';
+        document.write(typeof g,"<br>");
+        //Boolean()함수를 이용하여 string을 boolean으로 변환해 사용하자
+
+        // if(Boolean(g)){
+        //     alert('g는 true');
+        // }
+        // if(Boolean(h)){
+        //     alert('h는 false');
+        // }
+
+        // alert(Boolean(0)); //0이면 false
+        // alert(Boolean('')); //''이면false
+        // alert(Boolean(null)); //null이면 false
+        // alert(Boolean(undefined)); //undefined false
+
+        // alert(Boolean('false')); //문자열로 들어올 때 내용이 있으면 true
+        // alert(Boolean('0')); //true
+
+        //String() 함수
+        var w=10.12;
+        var y=String(w);
+        document.write(w,typeof(w),"<br>");
+        document.write(y,typeof(y),"<br>");
+
+        var str="5+3*2";
+        document.write(str,typeof(str),"<br>");
+        //eval()함수 : 문자열로 구성된 수식을 그대로 연산해줌
+        document.write("<h1>"+eval(str)+"</h1>");
+
+    </script>
+</body>
+</html>
+
+<!-- ex06_operator.html -->

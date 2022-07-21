@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>BOM-document객체2</h1>
+    <h2>h2태그입니다.1</h2>
+    <h1>h1태그입니다.2</h1>
+    <h2>h2태그입니다.3</h2>
+    <h1>h1태그입니다.4</h1>
+    <button id="btn" class="mybt">색상변경</button>
+    <button class="mybt" onclick="change1()">h1태그의 글자색상 바꾸기</button>
+    <button class="mybt" onclick="change2()">h2태그의 글자색상 바꾸기</button>
+    <button class="mybt" onclick="change3()">버튼들의 색상 바꾸기</button>
+    
+
+    <script>
+    //document객체 메소드
+    //[1] getElementById('아이디명'); 특정 id를 가진 객체를 참조
+        var obj=document.getElementById('btn');
+        obj.addEventListener('click',function(){
+            obj.style.backgroundColor='red';
+            obj.style.Color='yellow';
+        });
+
+    function change1(){
+    //[2] getElementsByTagName('태그명') : 반환타입 Collection
+    var h1arr=document.getElementsByTagName('h1');
+   //반복문 돌면서 각 h1 요소의 글자색을 'blue'로 변경하세요
+   for(var i=0;i<h1arr.length;i++){
+       h1arr[i].style.color='blue';
+       }
+    }
+    //[3] h2태그들을 찾아서 테두리 2px dashed hotpink로 주세요
+    function change2(){
+        var h2arr=document.getElementsByTagName('h2');
+    for(var i=0;i<h2arr.length;i++){
+        h2arr[i].style.borderWidth="2px";
+        h2arr[i].style.borderStyle="dashed";
+        h2arr[i].style.borderColor="hotpink";
+        }
+    }
+    //[4] getElementsByClassName("클래스명") : 반환타입 Collection
+    //    class명이 mybtn인 요소들을 찾아 배경색을 yellow, n
+    //    padding 5px, 테두리 1px solid silver로 주세요~
+    function change3(){
+        var btarr=document.getElementsByClassName('mybt');
+    for(var i=0;i<btarr.length;i++){
+        //btarr.array.forEach();
+        btarr[i].style.backgroundColor="yellow";
+        btarr[i].style.padding="5px;"
+        btarr[i].style.border="1px solid silver";
+        }
+    }   
+    </script>
+</body>
+</html>

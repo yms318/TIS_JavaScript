@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #flayer1{
+            position: absolute;
+            /*default는 static, absolute는 부모를 기준으로 좌표*/
+            left: 300px; /*x좌표*/
+            top: 250px;
+            width: 200px;
+            height: 200px;
+            background: greenyellow;
+            z-index: 3;
+        }
+        #flayer2{
+            position: absolute;
+            /*default는 static, absolute는 부모를 기준으로 좌표*/
+            left: 400px; /*x좌표*/
+            top: 350px;
+            width: 200px;
+            height: 200px;
+            background: darkseagreen;
+            z-index: 2;
+        }
+    </style>
+    <script>
+        var obj1, obj2 //전역변수 flayer1, flayer2
+        window.onload=function(){
+            obj1=document.getElementById('flayer1');
+            obj2=document.getElementById('flayer2');
+            //alert(obj1+"/"+obj2);
+        }
+        /*모든 html요소는 style객체를 갖는다. style객체를 다루기 위해서는 'style.스타일속성명="값"'
+        형태로 지정한다. 다만 css에서는 background-color:'yellow', javascript에선 '-'를 허용하지 않으므로
+        '-'를 빼고 단어의 첫글자를 대문자로 적는다.*/
+        var freset=function(){
+            obj1.style.backgroundColor="";
+            obj1.style.color="";
+            obj1.style.width="";
+            obj1.style.height="";
+            obj1.style.position="";
+            obj1.style.left="";
+            obj1.style.top="";
+            obj1.style.zIndex="";
+            obj1.style.backgroundImage="";
+            obj1.style.border="";
+            obj1.style.visibility="";
+        }
+        var fbgColor=function(){
+            obj1.style.backgroundColor='yellow';
+        }
+        var fcolor=function(){
+            obj1.style.color="gray";
+        }
+        var fsize=function(){
+            obj1.style.width="180px";
+            obj1.style.height="150px";
+        }
+        var fpos=function(){
+            obj1.style.position="absolute";
+            obj1.style.left="600px";
+        }
+        var fpos2=function(){
+            obj1.style.position="relative";
+            //인접요소를 기준으로
+            obj1.style.left="60px";
+            obj1.style.top="60px";
+        }
+        var fzindex=function(){
+            obj1.style.zIndex="1";
+        }
+        var fimg=function(){
+            obj1.style.backgroundImage="url('images/3.gif')";
+            obj1.style.backgroundRepeat="no-repeat";
+            obj1.style.backgroundPosition="50% 50%";
+        }
+        var fborder=function(){
+            obj1.style.border="3px dashed yellow";
+;
+        }
+        var fhide=function(){
+            obj1.style.visibility="hidden";
+        }
+    </script>
+</head>
+<body>
+        <h1>style객체</h1>
+        1. 화면의 레이어를 두 장 만들고 레이어의 다양한
+        속성을 바꿀 수 있는 버튼을 만들어보자<p>
+        <input type="button" value="레이어 초기상태" onclick="freset()"><p>
+        <input type="button" value="레이어 배경색 바꾸기" onclick="fbgColor()"><p>
+        <input type="button" value="레이어 글자색 바꾸기" onclick="fcolor()"><p>
+        <input type="button" value="레이어 크기 바꾸기"
+                                   onclick="fsize()"><p>
+                                      <!-- width:400px -->
+        <input type="button" value="레이어 절대적 위치 바꾸기" onclick="fpos()"><p>
+                                      <!-- position: absolute; left:600px -->
+        <input type="button" value="레이어 상대적 위치 바꾸기" onclick="fpos2()"><p>
+                                      <!-- position: relative;left:60; top:60 -->
+        <input type="button" value="레이어 순서 바꾸기" onclick="fzindex()"><p>
+      <!-- z-index: 1~9  값이 높을 수록 위에 올라감  -->
+        <input type="button" value="레이어 배경그림 넣기" onclick="fimg()"><p>
+      <!-- background-image:url('파일명'); -->
+        <input type="button" value="레이어 경계선 넣기" onclick="fborder()"><p>
+      <!-- border: 1px dashed red -->
+       <input type="button" value="레이어 감추기" onclick="fhide()">
+      <!-- visibility : hidden 반대는 visible-->
+          
+      
+        <div id="flayer1">첫번째 레이어</div>
+        <div id="flayer2">두번째 레이어</div>
+        <!-- 레이어 지정시 id로 구분되도록 한다.
+        class로 지정하면 자바스크립트로 제어할 수 없다.-->
+      
+</body>
+</html>
